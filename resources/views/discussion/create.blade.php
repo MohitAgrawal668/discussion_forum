@@ -17,7 +17,8 @@
                         
                         <div class="form-group mb-4">
                             <label for="">Content</label>
-                            <textarea name="content" id="content" class="form-control" placeholder="" aria-describedby="helpId"></textarea>
+                            <input id="x" type="hidden" name="content">
+                            <trix-editor input="x"></trix-editor>
                             <small id="helpId" class="text-muted"></small>
                         </div>
 
@@ -41,4 +42,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('css')
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+@endsection
+
+@section('script')
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 @endsection
