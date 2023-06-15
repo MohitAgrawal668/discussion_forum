@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateDiscussionRequest;
 use Illuminate\Http\Request;
 
 class DiscussionController extends Controller
@@ -25,7 +26,7 @@ class DiscussionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateDiscussionRequest $request)
     {
         //
     }
