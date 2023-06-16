@@ -21,8 +21,8 @@
                         
                         <div class="form-group mb-4">
                             <label for="">Content</label>
-                            <input id="x" type="hidden" name="content">
-                            <trix-editor input="x"></trix-editor>
+                            <input id="content" type="hidden" name="content">
+                            <trix-editor input="content"></trix-editor>
                             <small id="helpId" class="text-danger">
                                 @error('content')
                                     {{ $message }}
