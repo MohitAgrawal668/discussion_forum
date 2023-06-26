@@ -18,7 +18,9 @@
                         </div>        
                     </div>
                     <div class="card-body">
-                        {{$discussion->title}}
+                        <div class="text-center">
+                            <strong>{{$discussion->title}}</strong>
+                        </div>
                     </div>
                 </div>
             @endforeach
