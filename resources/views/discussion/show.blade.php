@@ -22,7 +22,7 @@
             <div class="card m-3">
                 <div class="card-header">Add Replies</div>
                 <div class="card-body">
-                    <form action="{{route('reply.store')}}" method="post">
+                    <form action="{{route('reply.store',['discussion'=>$discussion->slug])}}" method="post">
                         @csrf
                         
                         <div class="form-group mb-4">
