@@ -22,8 +22,21 @@
             @foreach($discussion->reply()->paginate(5) as $reply)
                 <div class="card m-3">
                     <div class="card-header">
-                        <img src="{{ Gravatar::get($reply->user->email) }}" style="width:40px;height:40px;border-radius:50%;" alt="">
-                        <strong>{{$reply->user->name}}</strong>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <img src="{{ Gravatar::get($reply->user->email) }}" style="width:40px;height:40px;border-radius:50%;" alt="">
+                                <strong>{{$reply->user->name}}</strong>   
+                            </div>
+                            <div>
+                                @if(auth()->user()->id == $discussion->user_id)
+                                    <form action="{{route('discussion.mark-as-best',['discussion' => $discussion->slug, 'reply' => $reply->id])}}" method="post">
+                                        <button type="submit" class="btn btn-info btn-sm">Mark as best reply</button>
+                                    </form>    
+                                @endif      
+                            </div>
+                        </div>
+
+                        
                     </div>
                     <div class="card-body">
                         {!! $reply->content !!}
