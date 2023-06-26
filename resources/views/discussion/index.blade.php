@@ -4,32 +4,24 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <p style="text-align:right"><a href="{{route('discussion.create')}}"><button type="button" class='btn btn-success'>Add Discussion</button></a></p>
-            <div class="card">
-                
-                <div class="card-header">Discussions</div>
-                <div class="card-body">
-                    <table class="table table-striped table-inverse table-responsive">
-                        <thead class="thead-inverse">
-                            <tr>
-                                <th>Title</th>
-                                <th>Channel</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($discussions as $discussion)
-                                    <tr>
-                                        <td scope="row">{{ $discussion->title }}</td>
-                                        <td>{{ $discussion->channel->name }}</td>
-                                        <td></td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                    </table>
-                    {{ $discussions->links() }}                        
+            @foreach($discussions as $discussion)
+                <div class="card m-3">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <img src="{{ Gravatar::get($discussion->user->email) }}" style="width:40px;height:40px;border-radius:50%;" alt="">
+                                <strong>{{$discussion->user->name}}</strong>
+                            </div>
+                            <div>
+                                <a href="{{route('discussion.show',['discussion'=> $discussion->slug])}}"><button type="button" class='btn btn-success btn-sm'>View</button></a>
+                            </div>
+                        </div>        
+                    </div>
+                    <div class="card-body">
+                        {{$discussion->title}}
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

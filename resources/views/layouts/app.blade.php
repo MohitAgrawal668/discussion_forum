@@ -76,6 +76,7 @@
             <div class="row">
                 @Auth
                     <div class="col-md-4">
+                        <p><a href="{{route('discussion.create')}}"><button type="button" class='btn btn-success'>Add Discussion</button></a></p>
                         <ul class="list-group">
                             @foreach($channels as $channel)
                                 <li class="list-group-item">{{$channel->name}}</li>

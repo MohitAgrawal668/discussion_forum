@@ -183,6 +183,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
+
     ])->toArray(),
 
 ];

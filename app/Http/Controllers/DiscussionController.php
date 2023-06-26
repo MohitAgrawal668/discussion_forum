@@ -51,9 +51,10 @@ class DiscussionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Discussion $discussion)
     {
-        //
+        $data = compact('discussion');
+        return view('discussion.show')->with($data);
     }
 
     /**
