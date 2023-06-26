@@ -16,6 +16,25 @@
                     
                     <hr>
                     {!! $discussion->content !!}
+
+                    @if($discussion->bestOneReply)
+                        <div class="card bg-success text-white my-3">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <img src="{{ Gravatar::get($discussion->bestOneReply->user->email) }}" style="width:40px;height:40px;border-radius:50%;" alt="" >
+                                        <strong>{{$discussion->bestOneReply->user->name}}</strong>
+                                    </div>
+                                    <div>
+                                        <strong>Best Reply</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                {!! $discussion->bestOneReply->content !!}
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
 
@@ -30,6 +49,7 @@
                             <div>
                                 @if(auth()->user()->id == $discussion->user_id)
                                     <form action="{{route('discussion.mark-as-best',['discussion' => $discussion->slug, 'reply' => $reply->id])}}" method="post">
+                                        @csrf
                                         <button type="submit" class="btn btn-info btn-sm">Mark as best reply</button>
                                     </form>    
                                 @endif      

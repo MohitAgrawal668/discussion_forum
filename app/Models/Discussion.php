@@ -10,7 +10,7 @@ use App\Models\User;
 class Discussion extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','content','slug','channel_id','user_id'];
+    protected $fillable = ['title','content','slug','channel_id','user_id','reply_id'];
 
     public function channel()
         {
@@ -25,7 +25,12 @@ class Discussion extends Model
     public function reply()
         {
             return $this->hasMany(Reply::class);
-        }     
+        }
+        
+    public function bestOneReply()
+        {
+            return $this->hasOne(Reply::class);
+        }    
      
     public function getRouteKeyName()
         {
