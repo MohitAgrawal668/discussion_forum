@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('slug')->unique();
-            $table->integer('channel_id');
+            $table->unsignedBigInteger('channel_id');
             $table->timestamps();
         });
     }

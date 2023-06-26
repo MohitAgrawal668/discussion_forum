@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Channel;
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
