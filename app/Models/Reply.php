@@ -10,4 +10,9 @@ class Reply extends Model
     use HasFactory;
 
     protected $fillable = ['content','discussion_id'];
+
+    public function user()
+        {
+            return $this->belongsTo(User::class);
+        }
 }

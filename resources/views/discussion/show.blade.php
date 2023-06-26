@@ -19,6 +19,20 @@
                 </div>
             </div>
 
+            @foreach($discussion->reply()->paginate(5) as $reply)
+                <div class="card m-3">
+                    <div class="card-header">
+                        <img src="{{ Gravatar::get($reply->user->email) }}" style="width:40px;height:40px;border-radius:50%;" alt="">
+                        <strong>{{$reply->user->name}}</strong>
+                    </div>
+                    <div class="card-body">
+                        {!! $reply->content !!}
+                    </div>
+                </div>
+            @endforeach
+            <div class="m-3">    
+                {{$discussion->reply()->paginate(5)->links()}}
+            </div>    
             <div class="card m-3">
                 <div class="card-header">Add Replies</div>
                 <div class="card-body">
