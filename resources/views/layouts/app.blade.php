@@ -24,7 +24,7 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 @auth
-                    <a href="{{ route('users.notificatios') }}" class="nav-link">
+                    <a href="{{ route('users.notifications') }}" class="nav-link">
                         <span class="badge bg-info">{{ auth()->user()->unreadNotifications->count() }} Unread Notifications</span>    
                     </a>    
                 @endauth
