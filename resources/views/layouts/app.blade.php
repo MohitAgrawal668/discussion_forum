@@ -84,7 +84,7 @@
                         <p><a href="{{route('discussion.create')}}"><button type="button" class='btn btn-success'>Add Discussion</button></a></p>
                         <ul class="list-group">
                             @foreach($channels as $channel)
-                                <li class="list-group-item">{{$channel->name}}</li>
+                                <li class="list-group-item"><a href="{{route('discussion.index')}}?channel={{$channel->slug}}">{{$channel->name}}</a></li>
                             @endforeach    
                         </ul>    
                     </div>

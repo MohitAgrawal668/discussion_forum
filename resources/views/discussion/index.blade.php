@@ -24,6 +24,9 @@
                     </div>
                 </div>
             @endforeach
+            <div class="card m-3">
+                {{ $discussions->appends('channel',request()->query('channel'))->links() }}
+            </div>
         </div>
     </div>
 </div>
