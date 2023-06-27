@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\Discussion;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -11,12 +12,13 @@ class NewReplyAdded extends Notification
 {
     use Queueable;
 
+    public $discussion = "";
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct(Discussion $discussion)
     {
-        //
+        $this->discussion = $discussion;
     }
 
     /**
@@ -35,8 +37,8 @@ class NewReplyAdded extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
+                    ->line('New reply added to this discussion.')
+                    ->action('View Discussion', route('discussion.show',['discussion' => $this->discussion->slug]))
                     ->line('Thank you for using our application!');
     }
 
