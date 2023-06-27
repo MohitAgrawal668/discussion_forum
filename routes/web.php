@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [DiscussionController::class, 'index'])->name('home');
 Route::resource('discussion',DiscussionController::class);
 
 Route::resource('discussion/{discussion}/reply',ReplyController::class);
