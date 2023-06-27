@@ -28,7 +28,7 @@ class MarkAsBestReply extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['mail','database'];
     }
 
     /**
@@ -50,7 +50,7 @@ class MarkAsBestReply extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            "discussion" => $this->discussion
         ];
     }
 }
