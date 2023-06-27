@@ -23,6 +23,11 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+                @auth
+                    <a href="{{ route('users.notificatios') }}" class="nav-link">
+                        <span class="badge bg-info">{{ auth()->user()->unreadNotifications->count() }} Unread Notifications</span>    
+                    </a>    
+                @endauth
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

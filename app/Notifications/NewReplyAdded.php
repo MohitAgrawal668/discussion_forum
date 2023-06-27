@@ -50,7 +50,7 @@ class NewReplyAdded extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            "discussion" => $this->discussion
         ];
     }
 }
