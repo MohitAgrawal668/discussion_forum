@@ -29,7 +29,7 @@ class Discussion extends Model
         
     public function bestOneReply()
         {
-            return $this->hasOne(Reply::class);
+            return $this->belongsTo(Reply::class,'reply_id');
         }    
      
     public function getRouteKeyName()
