@@ -6,6 +6,7 @@ use App\Http\Requests\CreateDiscussionRequest;
 use App\Models\Discussion;
 use App\Models\Reply;
 use App\Notifications\MarkAsBestReply;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -17,7 +18,7 @@ class DiscussionController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->only(['create','store']);
+        $this->middleware(['auth','verified'])->only(['create','store']);
     } 
 
     public function index()

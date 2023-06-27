@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
 Route::get('/home', [DiscussionController::class, 'index'])->name('home');
 Route::resource('discussion',DiscussionController::class);
